@@ -7,6 +7,19 @@
 
 namespace Inworld
 {
+    public enum Role
+    {
+        // Unspecified role. Do not use this, it will be responded with an error when specified as input.
+        ROLE_UNSPECIFIED = 0,
+        // The owner of the workspace.
+        ROLE_OWNER = 1,
+        // The admin of the workspace.
+        ROLE_ADMIN = 2,
+        // The developer of the workspace.
+        ROLE_DEVELOPER = 3,
+        // The viewer of the workspace.
+        ROLE_VIEWER = 4
+    }
     public enum InworldConnectionStatus
     {
         Idle, // Initial state

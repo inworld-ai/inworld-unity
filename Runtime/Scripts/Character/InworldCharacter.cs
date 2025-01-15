@@ -110,7 +110,23 @@ namespace Inworld
         /// Note that `BrainName` is actually the character's full name, formatted like `workspace/xxx/characters/xxx`.
         /// It is unique.
         /// </summary>
-        public string BrainName => Data?.brainName ?? "";
+        public string BrainName
+        {
+            get
+            {
+                if (Data == null)
+                    return "";
+                string brainName = Data.brainName;
+                string[] splits = brainName.Split('/');
+                if (splits.Length == 4)
+                    return brainName;
+                if (!InworldController.Instance || !InworldController.Instance.GameData)
+                    return "";
+                string wsName = InworldController.Instance.GameData.workspaceFullName;
+                return $"{wsName}/characters/{brainName}";
+            }
+        }
+
         /// <summary>
         /// Gets the live session ID of the character. If not registered, will try to fetch one from InworldController's CharacterHandler.
         /// </summary>
@@ -234,8 +250,9 @@ namespace Inworld
         }
         protected virtual void OnAudioCaptureStarted()
         {
-            if (InworldController.Audio.IsRecording)
-                CancelResponse();
+            // TODO(Yan): Check if cancel Response here is necessary.
+            // if (InworldController.Audio.IsRecording)
+            //     CancelResponse();
         }
         protected virtual void OnStatusChanged(InworldConnectionStatus newStatus)
         {

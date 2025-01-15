@@ -189,7 +189,7 @@ namespace Inworld.Test.Async
 			m_Conversation.Clear();
 			InworldController.Client.StartAudioTo(k_TestQuin); 
 			yield return new WaitForSeconds(0.1f);
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.SendAudioTo(k_AudioChunkBase64,k_TestQuin);
 			yield return new WaitForSeconds(0.1f);
 			InworldController.Client.StopAudioTo();
@@ -205,13 +205,13 @@ namespace Inworld.Test.Async
 			{
 				InworldController.Client.StartAudioTo(k_TestQuin); 
 				yield return new WaitForSeconds(0.1f);
-				InworldController.Audio.AutoDetectPlayerSpeaking = false;
+				//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 				InworldController.Client.StopAudioTo();
 				yield return new WaitForSeconds(0.1f);
 			}
 			InworldController.Client.StartAudioTo(k_TestQuin); 
 			yield return new WaitForSeconds(0.1f);
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.SendAudioTo(k_AudioChunkBase64, k_TestQuin);
 			yield return new WaitForSeconds(0.1f);
 			InworldController.Client.StopAudioTo();
@@ -229,7 +229,7 @@ namespace Inworld.Test.Async
 			Assert.IsTrue(m_Conversation.Any(p => p is TextPacket));
 			Assert.IsTrue(m_Conversation.Any(p => p is AudioPacket));
 			m_Conversation.Clear();
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.StartAudioTo(k_TestQuin); ;
 			yield return new WaitForSeconds(0.1f);
 			InworldController.Client.SendAudioTo(k_AudioChunkBase64, k_TestQuin);

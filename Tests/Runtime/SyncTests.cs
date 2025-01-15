@@ -189,7 +189,7 @@ namespace Inworld.Test.Sync
 			string agentID = InworldController.Client.LiveSessionData.Values.First().agentId;
 			InworldController.Client.StartAudio(agentID); ;
 			yield return new WaitForSeconds(0.1f);
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.SendAudio(agentID, k_AudioChunkBase64);
 			yield return new WaitForSeconds(0.1f);
 			InworldController.Client.StopAudio(agentID);
@@ -206,13 +206,13 @@ namespace Inworld.Test.Sync
 			{
 				InworldController.Client.StartAudio(agentID); 
 				yield return new WaitForSeconds(0.1f);
-				InworldController.Audio.AutoDetectPlayerSpeaking = false;
+				//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 				InworldController.Client.StopAudio(agentID);
 				yield return new WaitForSeconds(0.1f);
 			}
 			InworldController.Client.StartAudio(agentID); 
 			yield return new WaitForSeconds(0.1f);
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.SendAudio(agentID, k_AudioChunkBase64);
 			yield return new WaitForSeconds(0.1f);
 			InworldController.Client.StopAudio(agentID);
@@ -229,7 +229,7 @@ namespace Inworld.Test.Sync
 			Assert.IsTrue(m_Conversation.Any(p => p is TextPacket));
 			Assert.IsTrue(m_Conversation.Any(p => p is AudioPacket));
 			m_Conversation.Clear();
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			string agentID = InworldController.Client.LiveSessionData.Values.First().agentId;
 			InworldController.Client.StartAudio(agentID); ;
 			yield return new WaitForSeconds(0.1f);

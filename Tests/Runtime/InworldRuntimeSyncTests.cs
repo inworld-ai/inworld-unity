@@ -44,7 +44,7 @@ namespace Inworld.Test
 			InworldAI.User.Name = k_PlayerName;
 			Object.Instantiate(InworldAI.ControllerPrefab);
 			Assert.NotNull(InworldController.Instance);
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.CurrentScene = k_TestScene;
 			m_Conversation = new List<InworldPacket>();
 			InworldController.Client.OnStatusChanged += OnClientStatusChanged;
@@ -157,7 +157,7 @@ namespace Inworld.Test
 			string agentID = InworldController.Client.LiveSessionData.Values.First().agentId;
 			InworldController.Client.StartAudio(agentID); ;
 			yield return new WaitForSeconds(0.1f);
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.SendAudio(agentID, k_AudioChunk);
 			yield return new WaitForSeconds(0.1f);
 			InworldController.Client.StopAudio(agentID);
@@ -183,13 +183,13 @@ namespace Inworld.Test
 			{
 				InworldController.Client.StartAudio(agentID); 
 				yield return new WaitForSeconds(0.1f);
-				InworldController.Audio.AutoDetectPlayerSpeaking = false;
+				//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 				InworldController.Client.StopAudio(agentID);
 				yield return new WaitForSeconds(0.1f);
 			}
 			InworldController.Client.StartAudio(agentID); 
 			yield return new WaitForSeconds(0.1f);
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			InworldController.Client.SendAudio(agentID, k_AudioChunk);
 			yield return new WaitForSeconds(0.1f);
 			InworldController.Client.StopAudio(agentID);
@@ -237,7 +237,7 @@ namespace Inworld.Test
 			Assert.IsTrue(m_Conversation.Any(p => p is TextPacket));
 			Assert.IsTrue(m_Conversation.Any(p => p is AudioPacket));
 			m_Conversation.Clear();
-			InworldController.Audio.AutoDetectPlayerSpeaking = false;
+			//InworldController.Audio.AutoDetectPlayerSpeaking = false;
 			string agentID = InworldController.Client.LiveSessionData.Values.First().agentId;
 			InworldController.Client.StartAudio(agentID); ;
 			yield return new WaitForSeconds(0.1f);

@@ -9,7 +9,7 @@ using System;
 using UnityEngine.Events;
 
 
-namespace Inworld
+namespace Inworld.Audio
 {
 	[Serializable]
 	public class AudioEvent
